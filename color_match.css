@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 20px;
+  background-color: #17171c;
+  font-family: "Poppins", sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 260px);
+  justify-content: center;
+  gap: 20px;
+}
+
+.palette-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  height: 346px;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+.color-half {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5em 1em;
+  text-align: center;
+  cursor: pointer;
+  transition: flex-grow 0.2s ease;
+}
+
+.color-half:hover {
+  flex-grow: 1.25;
+}
+
+.color-half-top {
+  justify-content: flex-end;
+}
+
+.color-half-bottom {
+  justify-content: flex-start;
+}
+
+.color-name {
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.color-hex {
+  display: flex;
+  gap: 1.2em;
+  margin-top: 0.8em;
+  font-size: 0.9em;
+}
+
+.preview-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.preview-button:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.show-more {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 900px;
+  margin: 30px auto;
+  color: rgba(160, 160, 170, 0.8);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.show-more::before,
+.show-more::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: rgba(160, 160, 170, 0.4);
+}
+
+.show-more:hover {
+  color: rgba(220, 220, 230, 0.95);
+}
+
+.show-more:hover::before,
+.show-more:hover::after {
+  background-color: rgba(220, 220, 230, 0.7);
+}
+
+.preview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.close-preview-button {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  border: none;
+  background: none;
+  color: #ffffff;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.preview-modal .palette-card {
+  width: min(90vw, calc(85vh * 0.75));
+  height: auto;
+  aspect-ratio: 3 / 4;
+  font-size: min(5.5vw, 3.9vh);
+}
+
+.copy-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+  max-width: 90vw;
+  padding: 20px 28px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #17171c;
+  text-align: center;
+  pointer-events: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
